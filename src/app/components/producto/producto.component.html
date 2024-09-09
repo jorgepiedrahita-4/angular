@@ -1,0 +1,48 @@
+<p>producto works!</p>
+<div>
+  <h2>Lista de Productos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.desripcion }}</td>
+        <td>{{ producto.precio }}</td>
+        <td>{{ producto.stock }}</td>
+        <td>
+          <button (click)="editarProducto(producto)">Editar</button>
+          <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="editMode && productoEditando">
+    <h3>Editar Producto</h3>
+    <input [(ngModel)]="productoEditando.nombre" placeholder="Nombre" />
+    <input [(ngModel)]="productoEditando.desripcion" placeholder="Descripción" />
+    <input [(ngModel)]="productoEditando.precio" type="number" placeholder="Precio" />
+    <input [(ngModel)]="productoEditando.stock" type="number" placeholder="Stock" />
+    <button (click)="actualizarProducto()">Actualizar</button>
+    <button (click)="cancelarEdicion()">Cancelar</button>
+  </div>
+
+  <div *ngIf="!editMode">
+    <h3>Insertar Producto</h3>
+    <input [(ngModel)]="nuevoProducto.nombre" placeholder="Nombre" />
+    <input [(ngModel)]="nuevoProducto.desripcion" placeholder="Descripción" />
+    <input [(ngModel)]="nuevoProducto.precio" type="number" placeholder="Precio" />
+    <input [(ngModel)]="nuevoProducto.stock" type="number" placeholder="Stock" />
+    <button (click)="insertarProducto()">Agregar</button>
+  </div>
+</div>
