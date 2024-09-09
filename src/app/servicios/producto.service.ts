@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Producto } from '../producto.model'; // Asegúrate de que la ruta sea correcta
+import { Producto } from '../producto.model'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
-  private apiUrl = 'https://localhost:7163/api/Producto'; // Reemplaza con tu URL de API
+  private apiUrl = 'https://localhost:7163/api/Producto'; 
 
   constructor(private http: HttpClient) { }
 

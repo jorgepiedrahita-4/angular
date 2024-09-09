@@ -35,16 +35,16 @@ export class ProductoComponent implements OnInit {
     //if (this.productoEditando.id !==0 ) {
       this.productoService.updateProducto(this.productoEditando.id, this.productoEditando).pipe(
         finalize(() => {
-          // Esto siempre se ejecuta, ya sea éxito o error
+          
         this.cargarProductos();
         this.cancelarEdicion();
         })
       ).subscribe({
         next: () => {
-          // Aquí puedes manejar el caso de éxito si lo necesitas
+          
         },
         error: (error) => {
-          // Aquí puedes manejar el error si lo necesitas
+        
           console.error('Error al agregar el producto', error);
         }
       });
@@ -54,16 +54,16 @@ export class ProductoComponent implements OnInit {
   eliminarProducto(id: number): void {
     this.productoService.deleteProducto(id).pipe(
       finalize(() => {
-        // Esto siempre se ejecuta, ya sea éxito o error
+        
         this.cargarProductos();
         this.nuevoProducto = { id: 0, nombre: '', desripcion: '', precio: 0, stock: 0 }; // Reset nuevoProducto
       })
     ).subscribe({
       next: () => {
-        // Aquí puedes manejar el caso de éxito si lo necesitas
+        
       },
       error: (error) => {
-        // Aquí puedes manejar el error si lo necesitas
+        
         console.error('Error al agregar el producto', error);
       }
     });
@@ -72,16 +72,16 @@ export class ProductoComponent implements OnInit {
   insertarProducto(): void {
     this.productoService.addProducto(this.nuevoProducto).pipe(
       finalize(() => {
-        // Esto siempre se ejecuta, ya sea éxito o error
+        
         this.cargarProductos();
-        this.nuevoProducto = { id: 0, nombre: '', desripcion: '', precio: 0, stock: 0 }; // Reset nuevoProducto
+        this.nuevoProducto = { id: 0, nombre: '', desripcion: '', precio: 0, stock: 0 }; 
       })
     ).subscribe({
       next: () => {
-        // Aquí puedes manejar el caso de éxito si lo necesitas
+        
       },
       error: (error) => {
-        // Aquí puedes manejar el error si lo necesitas
+        
         console.error('Error al agregar el producto', error);
       }
     });
